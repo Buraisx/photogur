@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 	# 'pictures name of controller, the class called PicturesController
 	# index Name of method in controller that gets executed when someone makes request
 	get 'pictures' => 'pictures#index'
+
+	root 'pictures#index'
+	
+	get 'pictures/new' => 'pictures#new'
+	# any value can take place of :id
+	get 'pictures/:id' => 'pictures#show'
+
+	post 'pictures' => 'pictures#create'
+
 end
