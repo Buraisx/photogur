@@ -14,6 +14,32 @@ class PicturesController < ApplicationController
 	def new
 		@picture = Picture.new
 	end
+	# finds picture and stores it
+	def edit
+		@picture = Picture.find(params[:id])
+	end
+	# deletes picture
+	# finds picture then destroys it through active record
+	def destroy
+		@picture = Picture.find(params[:id])
+	    @picture.destroy
+	    redirect_to "/pictures"
+	end
+	# updates all values of the found picture
+	def update
+	    @picture = Picture.find(params[:id])
+
+	    @picture.title = params[:picture][:title]
+	    @picture.artist = params[:picture][:artist]
+	    @picture.url = params[:picture][:url]
+
+
+	    if @picture.save
+	      redirect_to "/pictures/#{@picture.id}"
+	    else
+	      render :edit
+	    end
+  	end
 
 	def create
 		@picture = Picture.new

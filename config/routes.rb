@@ -9,10 +9,14 @@ Rails.application.routes.draw do
 	get 'pictures' => 'pictures#index'
 
 	root 'pictures#index'
-	
+
 	get 'pictures/new' => 'pictures#new'
+	get 'pictures/:id/edit' => 'pictures#edit'
 	# any value can take place of :id
 	get 'pictures/:id' => 'pictures#show'
+	patch 'pictures/:id' => "pictures#update"
+
+	delete 'pictures/:id' => 'pictures#destroy'
 
 	post 'pictures' => 'pictures#create'
 
