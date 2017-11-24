@@ -1,0 +1,14 @@
+<h1>Pictures</h1>
+<%= link_to("New Picture", "/pictures/new") %>
+
+<% c_month = Time.now.month %>
+<% num_pics = 0 %>
+<% @pictures.each do |picture| %>
+	<% if picture.created_at.month < c_month%>
+		<p><%= picture.title %>, <%= picture.artist %></p>
+		<p><%= picture.created_at %></p>
+		<%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+		<% num_pics += 1 %>
+	<% end %>
+<% end %>
+<h1> (<%= num_pics%>)</h1>

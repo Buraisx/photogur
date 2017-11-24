@@ -1,6 +1,9 @@
 class PicturesController < ApplicationController
 	def index
-		@pictures = Picture.all
+		@pictures = Picture.created_before(Time.now - 1.month)
+		@pictures2= Picture.pictures_created_in_year(2017)
+		# @pictures = Picture.all
+
 	end
 
 	# retrieve right picture from database and store it in instance variable
@@ -32,7 +35,7 @@ class PicturesController < ApplicationController
 	    @picture.title = params[:picture][:title]
 	    @picture.artist = params[:picture][:artist]
 	    @picture.url = params[:picture][:url]
-
+	    @picture.created_at = params[:picture][:created_at]
 
 	    if @picture.save
 	      redirect_to "/pictures/#{@picture.id}"

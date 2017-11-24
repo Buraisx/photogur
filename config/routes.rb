@@ -6,18 +6,22 @@ Rails.application.routes.draw do
 	# =>, # syntax for defining routes
 	# 'pictures name of controller, the class called PicturesController
 	# index Name of method in controller that gets executed when someone makes request
-	get 'pictures' => 'pictures#index'
+	
 
-	root 'pictures#index'
 
-	get 'pictures/new' => 'pictures#new'
-	get 'pictures/:id/edit' => 'pictures#edit'
-	# any value can take place of :id
-	get 'pictures/:id' => 'pictures#show'
-	patch 'pictures/:id' => "pictures#update"
+	# get 'pictures' => 'pictures#index'
+	# url without a path
+	# root 'pictures#index'
 
-	delete 'pictures/:id' => 'pictures#destroy'
+	# get 'pictures/new' => 'pictures#new'
+	# get 'pictures/:id/edit' => 'pictures#edit'
+	# # any value can take place of :id
+	# get 'pictures/:id' => 'pictures#show'
+	# patch 'pictures/:id' => "pictures#update"
 
-	post 'pictures' => 'pictures#create'
+	# delete 'pictures/:id' => 'pictures#destroy'
+
+	# post 'pictures' => 'pictures#create'
+	resources :pictures
 
 end
