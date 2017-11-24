@@ -13,4 +13,7 @@ class Picture < ApplicationRecord
 	def self.pictures_created_in_year(year)
 		Picture.where(created_at: Time.new(year)..Time.new(year +1))
 	end
+	validates :artist, :title, :url, presence: true
+	validates :title, length: {minimum: 3, maximum: 20}
+	validates :url, uniqueness: true
 end
