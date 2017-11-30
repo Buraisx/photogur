@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+
+  # get 'sessions/new'
+
+  # get 'sessions/create'
+
+  # get 'sessions/destroy'
+
+  # get '/users/new'
+
+  # get '/users/create'
+
 	# /pictures will go to the pictures controller index method
 	# Math any http GET request for the URL /pictures to the index metod in Pictures COntroller
 	# GET http Request
@@ -22,6 +34,12 @@ Rails.application.routes.draw do
 	# delete 'pictures/:id' => 'pictures#destroy'
 
 	# post 'pictures' => 'pictures#create'
+	
+	resource :users, only: [:new,:create]
+	resource  :sessions, only: [:new,:create,:destroy]
 	resources :pictures
+	root "pictures#index"
 
 end
+
+

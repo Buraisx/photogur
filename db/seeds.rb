@@ -22,3 +22,8 @@ Picture.create(
   artist: 'John Wilhelm',
   url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/girl.jpg'
 )
+
+User.create(email: "william_situ_207@hotmail.com", password_digest: "123456")
+User.create(email: "william_situ@hotmail.com", password_digest: "1234567")
+User.create(email: "william@hotmail.com", password_digest: "1234568")
+User.create(email: "hotpoop@hotmail.com", password_digest: "1234569")
