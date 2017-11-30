@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+	before_action :ensure_logged_in, except: [:show, :index]
+
 	def index
 		@pictures = Picture.created_before(Time.now - 1.month)
 		@pictures2= Picture.pictures_created_in_year(2017)
@@ -50,7 +52,7 @@ class PicturesController < ApplicationController
 	    @picture.title = params[:picture][:title]
 	    @picture.artist = params[:picture][:artist]
 	    @picture.url = params[:picture][:url]
-
+	    @picture.user_id = current_user.id
 
 	    if @picture.save
 	      # if the picture gets saved, generate a get request to "/pictures" (the index)

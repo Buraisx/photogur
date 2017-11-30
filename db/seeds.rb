@@ -5,25 +5,29 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Picture.destroy_all
+User.destroy_all
 Picture.create(
   title:  'The old church on the coast of White sea',
   artist: 'Sergey Ershov',
-  url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/house.jpg'
+  url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/house.jpg',
+  user_id: 1
 )
 
 Picture.create(
   title:  'Sea Power',
   artist: 'Stephen Scullion',
-  url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/wave.jpg'
+  url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/wave.jpg',
+  user_id: 2
 )
 
 Picture.create(
   title:  'Into the Poppies',
   artist: 'John Wilhelm',
-  url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/girl.jpg'
+  url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/girl.jpg',
+  user_id: 1
 )
 
-User.create(email: "william_situ_207@hotmail.com", password_digest: "123456")
-User.create(email: "william_situ@hotmail.com", password_digest: "1234567")
-User.create(email: "william@hotmail.com", password_digest: "1234568")
-User.create(email: "hotpoop@hotmail.com", password_digest: "1234569")
+User.create(email: "william_situ_207@hotmail.com", password_digest: "123456", password: "123456", password_confirmation: "123456")
+User.create(email: "william_situ@hotmail.com", password_digest: "1234567", password: "123456", password_confirmation: "123456")
+User.create(email: "william@hotmail.com", password_digest: "1234568", password: "123456", password_confirmation: "123456")
